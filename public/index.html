@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rngFC 25</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .chat-panel {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: 350px;
+      height: 450px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      overflow-x: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .chat-panel.minimized {
+      width: 60px;
+      height: 60px;
+    }
+
+    #chat-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      backdrop-filter: blur(10px);
+    }
+
+    #minimize-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 123, 255, 0.7);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    #minimize-button:hover {
+      background: rgba(0, 86, 179, 0.8);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>rngFC 25 [BETA]</h1>
+    <h2>A RNG game where you collect various soccer players.</h2>
+    <div class="button-group">
+      <button id="roll-button">Roll</button>
+      <button id="autoroll-button">Start Autoroll</button>
+      <button id="inventory-button">Inventory</button>
+    </div>
+    <p id="rolled-player"></p>
+    <img id="rolled-player-image" src="test" alt="Player Image" style="display: none" width="200" />
+  </div>
+
+  <div class="chat-panel">
+    <button id="minimize-button">-</button>
+    <iframe id="chat-iframe" src="https://rngchat.vercel.app/"></iframe>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const minimizeButton = document.getElementById("minimize-button");
+    const chatPanel = document.querySelector(".chat-panel");
+
+    minimizeButton.addEventListener("click", () => {
+      chatPanel.classList.toggle("minimized");
+      minimizeButton.textContent = chatPanel.classList.contains("minimized")
+        ? "+"
+        : "-";
+    });
+
+    document
+      .getElementById("inventory-button")
+      .addEventListener("click", () => {
+        window.location.href = "/inventory";
+      });
+  </script>
+</body>
+
+</html>

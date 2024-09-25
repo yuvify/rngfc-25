@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="inventory-container">
+    <h1>Your Inventory</h1>
+    <ul id="inventory-list"></ul>
+    <button id="back-button">Back</button>
+  </div>
+  <script src="inventory.js"></script>
+  <script>
+    document.getElementById("back-button").addEventListener("click", () => {
+      window.location.href = "/";
+    });
+  </script>
+</body>
+
+</html>
